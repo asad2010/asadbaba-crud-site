@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Product List</title>
+    <style>
+        .content {
+            display: flex;  
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .content div {
+            width: 400px;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 15px;
+            background: white;
+
+        }
+
+        .content div h3 {
+            margin-top: 20px;   
+        }
+        .edit-delete a {
+            text-decoration: none;
+            color: black;
+            background: gray;
+            font-size: 30px;
+        }
+        body {
+            
+        }
+        .contente {
+            background: linear-gradient(to right bottom, blue, lightblue, purple, pink);
+            background-repeat:no-repeat ;
+            background-size: cover;
+            min-height: 100vh;
+            height: 100%;
+
+        }
+        .addproduct {
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            display: block;
+            margin-top: 40px;
+            height: 40px;
+
+        }
+        .heading {
+            font-size: 55px;
+            text-align: center;
+            color: white;
+        }
+        .form {
+            width: 450px;
+
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        
+        .form input {
+            width: 250px;
+        }
+        .form button {
+            width: 150px;
+            height: 40px;
+            border: 1px solid gray;
+            background: none;
+        }
+        .mt {
+            margin-top: 40px;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="contente">
+        <div class="container">
+
+            <h1 class="heading">Product List</h1>
+            <a href="/add" class="addproduct">Add Product</a>
+        
+           
+            <h1 class="heading mt">Products</h1>
+            <div class="content">
+                <% data.forEach((product)=>  { %>
+                    <div>
+                        <h1>id: <%= product.id %></h1> 
+                        <h3>name: <%= product.name %></h3>
+                        <p>price: <%= product.price %>$ = <%= Math.round(product.price * 0.93) %> € = <%= Math.round(product.price * 11448.56) %> sum   </p>
+                        <div class="edit-delete">
+                            <a href="/edit/<%= product.id %>">EDIT</a>
+                            <a href="/delete/<%= product.id %>">DELETE</a>
+                        </div>
+        
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
